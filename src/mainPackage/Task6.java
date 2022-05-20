@@ -11,110 +11,104 @@ import java.io.*;
 
 public class Task6 {
 
-	public static void main(String[] args) throws Exception { //волшебнная фраза (безопасность привыше всего)
-		   
-		
+	public static void main(String[] args) throws Exception { //РІРѕР»С€РµР±РЅРЅР°СЏ С„СЂР°Р·Р° (Р±РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ РїСЂРёРІС‹С€Рµ РІСЃРµРіРѕ)
 		List<Notebook> notebook = new ArrayList<>();
 		List<Note> note = new ArrayList<>();
 		String tempStr1,tempStr2,tempStr3,tempStr4;
 		String tempStr,tempGroup;
 		int tempInt;
-		 //расположение файла C:\Users\Pc\eclipse-workspace\Task 6
+		 //СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ С„Р°Р№Р»Р° C:\Users\Pc\eclipse-workspace\Task 6
 		   FileReader fr = new FileReader( "Note.txt" );
 		   Scanner scan2 = new Scanner(fr);
-		   
-		   //прочитаем все заметки из файла
+		   //РїСЂРѕС‡РёС‚Р°РµРј РІСЃРµ Р·Р°РјРµС‚РєРё РёР· С„Р°Р№Р»Р°
 		   while (scan2.hasNextLine()) {
 	            Note objNote = new Note(scan2.nextLine(), scan2.nextLine(),
 	            			 scan2.nextLine(), scan2.nextLine());
 	            note.add(objNote);
 	       }
 		   Collections.sort(note);
-		   
-
-	       //создадим блокнот и поместим туда заметки
-	       Notebook objNotebook = new Notebook("Блокнот 1",note);
+	       //СЃРѕР·РґР°РґРёРј Р±Р»РѕРєРЅРѕС‚ Рё РїРѕРјРµСЃС‚РёРј С‚СѓРґР° Р·Р°РјРµС‚РєРё
+	       Notebook objNotebook = new Notebook("Р‘Р»РѕРєРЅРѕС‚ 1",note);
 	       notebook.add(objNotebook);
 	     
-	       
 	       Scanner scan = new Scanner(System.in);
 	       int x = 0;
 	       String s ="";
 	       
 	       while (!"4".equals(s)){
-	           System.out.println("1. Для просмотра содержимого блокнота введите ==> 1");
-	           System.out.println("2. Для поиска по параметру введите ==> 2");
-	           System.out.println("3. Для добавления новой записи введите ==> 3");
-	           System.out.println("4. Для выхода введите ==> 4");
+	           System.out.println("1. Р”Р»СЏ РїСЂРѕСЃРјРѕС‚СЂР° СЃРѕРґРµСЂР¶РёРјРѕРіРѕ Р±Р»РѕРєРЅРѕС‚Р° РІРІРµРґРёС‚Рµ ==> 1");
+	           System.out.println("2. Р”Р»СЏ РїРѕРёСЃРєР° РїРѕ РїР°СЂР°РјРµС‚СЂСѓ РІРІРµРґРёС‚Рµ ==> 2");
+	           System.out.println("3. Р”Р»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕР№ Р·Р°РїРёСЃРё РІРІРµРґРёС‚Рµ ==> 3");
+	           System.out.println("4. Р”Р»СЏ РІС‹С…РѕРґР° РІРІРµРґРёС‚Рµ ==> 4");
 	           s = scan.next();
 	           try {
 	               x = Integer.parseInt(s);
 	           } catch (NumberFormatException e){
-	               System.out.println("Неверный ввод");
+	               System.out.println("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ");
 	           }
 	           switch (x){
 	               case 1:	
-	                   // вызов метода 1
-	               	System.out.println("===== Выбран пункт меню 1 =====");
+	                   // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 1
+	               	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 1 =====");
 	                for (Notebook u : notebook) {
 	                	
 	          	    	System.out.println(u);
 	          	    }
 	                   break;
 	               case 2:
-	                   // вызов метода 2
-	               	System.out.println("===== Выбран пункт меню 2 =====");
+	                   // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 2
+	               	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 2 =====");
 	                while (!"7".equals(s)){
-	     	           System.out.println("1. Для поиска по теме  введите ==> 1");
-	     	           System.out.println("2. Для поиска по дате создания  введите ==> 2");
-	     	           System.out.println("3. Для поиска по почте введите ==> 3");
-	     	           System.out.println("4. Для поиска по тексту сообщения введите ==> 4");
-	     	           System.out.println("5. Для поиска по группе параметров(По теме и дате) ==> 5");
-	     	          System.out.println("6. Для поиска по любой группе символов введите ==> 6");
-	     	           System.out.println("7. Для выхода введите ==> 7");
+	     	           System.out.println("1. Р”Р»СЏ РїРѕРёСЃРєР° РїРѕ С‚РµРјРµ  РІРІРµРґРёС‚Рµ ==> 1");
+	     	           System.out.println("2. Р”Р»СЏ РїРѕРёСЃРєР° РїРѕ РґР°С‚Рµ СЃРѕР·РґР°РЅРёСЏ  РІРІРµРґРёС‚Рµ ==> 2");
+	     	           System.out.println("3. Р”Р»СЏ РїРѕРёСЃРєР° РїРѕ РїРѕС‡С‚Рµ РІРІРµРґРёС‚Рµ ==> 3");
+	     	           System.out.println("4. Р”Р»СЏ РїРѕРёСЃРєР° РїРѕ С‚РµРєСЃС‚Сѓ СЃРѕРѕР±С‰РµРЅРёСЏ РІРІРµРґРёС‚Рµ ==> 4");
+	     	           System.out.println("5. Р”Р»СЏ РїРѕРёСЃРєР° РїРѕ РіСЂСѓРїРїРµ РїР°СЂР°РјРµС‚СЂРѕРІ(РџРѕ С‚РµРјРµ Рё РґР°С‚Рµ) ==> 5");
+	     	          System.out.println("6. Р”Р»СЏ РїРѕРёСЃРєР° РїРѕ Р»СЋР±РѕР№ РіСЂСѓРїРїРµ СЃРёРјРІРѕР»РѕРІ РІРІРµРґРёС‚Рµ ==> 6");
+	     	           System.out.println("7. Р”Р»СЏ РІС‹С…РѕРґР° РІРІРµРґРёС‚Рµ ==> 7");
 	     	           s = scan.next();
 	     	           try {
 	     	               x = Integer.parseInt(s);
 	     	           } catch (NumberFormatException e){
-	     	               System.out.println("Неверный ввод");
+	     	               System.out.println("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ");
 	     	           }
 	     	           switch (x){
 	     	               case 1:	
-	     	                   // вызов метода 1
-	     	               	System.out.println("===== Выбран пункт меню 1 =====");
+	     	                   // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 1
+	     	               	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 1 =====");
 	     	               tempStr = objNotebook.scanerStr();
 	     	               tempInt=1; tempGroup="";
 	     	               System.out.println(" "+objNotebook.searchNoteSubject(tempStr,tempInt,tempGroup));
 	     	                   break;
 	     	               case 2:
-	     	                   // вызов метода 2
-	     	               	System.out.println("===== Выбран пункт меню 2 =====");
+	     	                   // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 2
+	     	               	System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 2 =====");
 	     	               tempStr = objNotebook.scanerStr();
 	     	               tempInt=2; tempGroup="";
 	     	               System.out.println(" "+objNotebook.searchNoteSubject(tempStr,tempInt,tempGroup));
 	     	               break;
 	     	               case 3:
-	     	            	   System.out.println("===== Выбран пункт меню 3 =====");
+	     	            	   System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 3 =====");
 	     	            	  tempStr = objNotebook.scanerStr();
 		     	               tempInt=3; tempGroup="";
 		     	               System.out.println(" "+objNotebook.searchNoteSubject(tempStr,tempInt,tempGroup));
 	     	                  break;
 	     	              case 4:
-	     	            	   System.out.println("===== Выбран пункт меню 4 =====");
+	     	            	   System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 4 =====");
 	     	            	  tempStr = objNotebook.scanerStr();
 		     	              tempInt=4;
 		     	              tempGroup= "";
 		     	               System.out.println(" "+objNotebook.searchNoteSubject(tempStr,tempInt,tempGroup));
 	     	                  break;
 	     	             case 5:
-	     	            	   System.out.println("===== Выбран пункт меню 5 =====");
+	     	            	   System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 5 =====");
 	     	            	  tempStr = objNotebook.scanerStr();
 		     	              tempInt = 5;
 		     	              tempGroup = objNotebook.scanerStr();
 		     	               System.out.println(" "+objNotebook.searchNoteSubject(tempStr,tempInt,tempGroup));
 	     	                  break;
 	     	            case 6:
-	     	            	   System.out.println("===== Выбран пункт меню 6 =====");
+	     	            	   System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 6 =====");
 	     	            	  tempStr = objNotebook.scanerStr();
 		     	               System.out.println(" "+objNotebook.searchAll(tempStr));
 	     	                  break;
@@ -123,15 +117,15 @@ public class Task6 {
 	               	 
 	                   break;
 	               case 3:
-	            	   System.out.println("===== Выбран пункт меню 3 =====");
-	                   // вызов метода 3
-	            	   //введём данные
-	            	   System.out.println("ВВедите тему:");tempStr1=objNotebook.scanerStr();
-	            	   System.out.println("ВВедите дату:");tempStr2=objNotebook.scanerStrDate();
-	            	   System.out.println("ВВедите почту:");tempStr3=objNotebook.scanerStrEmail();
-	            	   System.out.println("ВВедите сообщение:");tempStr4=objNotebook.scanerStr();
-	            	   Note objNote = new Note(tempStr1, tempStr2 , tempStr3 , tempStr4);//создадим новый объкт
-		               note.add(objNote);//закинем его в коллекцию
+	            	   System.out.println("===== Р’С‹Р±СЂР°РЅ РїСѓРЅРєС‚ РјРµРЅСЋ 3 =====");
+	                   // РІС‹Р·РѕРІ РјРµС‚РѕРґР° 3
+	            	   //РІРІРµРґС‘Рј РґР°РЅРЅС‹Рµ
+	            	   System.out.println("Р’Р’РµРґРёС‚Рµ С‚РµРјСѓ:");tempStr1=objNotebook.scanerStr();
+	            	   System.out.println("Р’Р’РµРґРёС‚Рµ РґР°С‚Сѓ:");tempStr2=objNotebook.scanerStrDate();
+	            	   System.out.println("Р’Р’РµРґРёС‚Рµ РїРѕС‡С‚Сѓ:");tempStr3=objNotebook.scanerStrEmail();
+	            	   System.out.println("Р’Р’РµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ:");tempStr4=objNotebook.scanerStr();
+	            	   Note objNote = new Note(tempStr1, tempStr2 , tempStr3 , tempStr4);//СЃРѕР·РґР°РґРёРј РЅРѕРІС‹Р№ РѕР±СЉРєС‚
+		               note.add(objNote);//Р·Р°РєРёРЅРµРј РµРіРѕ РІ РєРѕР»Р»РµРєС†РёСЋ
 		               
 		               objNote.delFile();
 		               for(Note u : note)
@@ -139,12 +133,12 @@ public class Task6 {
 		               
 		               objNotebook=null; notebook.clear();
 		               
-		               Notebook objNotebook2 = new Notebook("Блокнот 1",note);
+		               Notebook objNotebook2 = new Notebook("Р‘Р»РѕРєРЅРѕС‚ 1",note);
 		    	       notebook.add(objNotebook2);
 	                   break;
 	           }
 	       }
-	       System.out.println("До свидания!");
+	       System.out.println("Р”Рѕ СЃРІРёРґР°РЅРёСЏ!");
 	       scan.close();
 	       scan2.close();
 	       fr.close();

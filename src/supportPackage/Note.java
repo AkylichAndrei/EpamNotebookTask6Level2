@@ -2,11 +2,11 @@ package supportPackage;
 
 import java.io.FileWriter;
 
-public class Note implements Comparable <Note> { //класс заметка
-	private String noteSubject;//тема заметки
-    private String dateOfCreation;//дата создания заметки
-	private String email;//почта
-	private String message;//сообщение
+public class Note implements Comparable <Note> { //РєР»Р°СЃСЃ Р·Р°РјРµС‚РєР°
+	private String noteSubject;//С‚РµРјР° Р·Р°РјРµС‚РєРё
+    private String dateOfCreation;//РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ Р·Р°РјРµС‚РєРё
+	private String email;//РїРѕС‡С‚Р°
+	private String message;//СЃРѕРѕР±С‰РµРЅРёРµ
 	
 	public Note(String noteSubject, String dateOfCreation, String email, String message){
 		this.noteSubject=noteSubject;
@@ -15,21 +15,21 @@ public class Note implements Comparable <Note> { //класс заметка
 		this.message=message;
 	}
 	  @Override
-		 //реализуем метод compareTo интерфейса Comparable
+		 //СЂРµР°Р»РёР·СѓРµРј РјРµС‚РѕРґ compareTo РёРЅС‚РµСЂС„РµР№СЃР° Comparable
 		     public int compareTo(Note o) {
 
 		          int   result = this.noteSubject.compareTo(o.noteSubject);
 		         return result;
 		     }
 	 public void delFile() throws Exception {
-			FileWriter nFile = new FileWriter("Note.txt", false); //значение False указывает на то,
-			//что файл будет перезаписываться
+			FileWriter nFile = new FileWriter("Note.txt", false); //Р·РЅР°С‡РµРЅРёРµ False СѓРєР°Р·С‹РІР°РµС‚ РЅР° С‚Рѕ,
+			//С‡С‚Рѕ С„Р°Р№Р» Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃС‹РІР°С‚СЊСЃСЏ
 		    nFile.write("");
 		    nFile.close();
 	}
 	 public void add(String noteSubject, String dateOfCreation, String email, String message) throws Exception {
-			FileWriter nFile = new FileWriter("Note.txt", true); //значение true указывает на то,
-			//что файл будет дозаписываться
+			FileWriter nFile = new FileWriter("Note.txt", true); //Р·РЅР°С‡РµРЅРёРµ true СѓРєР°Р·С‹РІР°РµС‚ РЅР° С‚Рѕ,
+			//С‡С‚Рѕ С„Р°Р№Р» Р±СѓРґРµС‚ РґРѕР·Р°РїРёСЃС‹РІР°С‚СЊСЃСЏ
 		    nFile.write(noteSubject + System.lineSeparator());
 		    nFile.write(dateOfCreation + System.lineSeparator());
 		    nFile.write(email + System.lineSeparator());

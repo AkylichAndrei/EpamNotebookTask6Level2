@@ -7,8 +7,8 @@ import java.util.regex.Pattern;
 
 import supportPackage.Note;
 
-public class Notebook {//класс блокнот
-private String name;//название блокнота
+public class Notebook {//РєР»Р°СЃСЃ Р±Р»РѕРєРЅРѕС‚
+private String name;//РЅР°Р·РІР°РЅРёРµ Р±Р»РѕРєРЅРѕС‚Р°
 private List<Note> note;
 
 public Notebook(String name, List<Note> note){
@@ -20,20 +20,20 @@ public String toString() {
 	String s="";
 	  for (int i=0; i < note.size(); i++)
         {
-			  s=s + "\r\n  |+++++| Тема заметки: "
+			  s=s + "\r\n  |+++++| РўРµРјР° Р·Р°РјРµС‚РєРё: "
 	            		+ ""+ note.get(i).getNoteSubject() + " "
-	            				+ "|+++++| Дата создания  : "
+	            				+ "|+++++| Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ  : "
 	            					+ ""+note.get(i).getDateOfCreation()+"  "
-	            							+ "  |+++++| Почтовый адресс  : "
+	            							+ "  |+++++| РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃСЃ  : "
 	    	            					+ ""+note.get(i).getEmail()+"  "
-	    	            							+ "  |+++++| Сообщение : "
+	    	            							+ "  |+++++| РЎРѕРѕР±С‰РµРЅРёРµ : "
 	    	    	            					+ ""+note.get(i).getMessage()+"  "
 	            						+ " ";
          
         }
 		 return "{" +
-        " Вы просматриваете Болкнот :'" + this.name  + " \r\n "+
-        ", Список заметак в блокноте : ||'" + s  + '\'' +
+        " Р’С‹ РїСЂРѕСЃРјР°С‚СЂРёРІР°РµС‚Рµ Р‘РѕР»РєРЅРѕС‚ :'" + this.name  + " \r\n "+
+        ", РЎРїРёСЃРѕРє Р·Р°РјРµС‚Р°Рє РІ Р±Р»РѕРєРЅРѕС‚Рµ : ||'" + s  + '\'' +
         '}';
 }
 public String searchAll(String tempStr) {
@@ -41,13 +41,13 @@ public String searchAll(String tempStr) {
 	String s1="",s2="";
 	boolean bol=false;
 	for (int i=0; i < note.size(); i++) {
-	s1 = "\r\n  |+++++| Тема заметки  : "
+	s1 = "\r\n  |+++++| РўРµРјР° Р·Р°РјРµС‚РєРё  : "
     		+ ""+ note.get(i).getNoteSubject() + " "
-    				+ "  |+++++| Дата создания  : "
+    				+ "  |+++++| Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ  : "
     					+ ""+note.get(i).getDateOfCreation()+"  "
-    							+ "  |+++++| Почтовый адресс  : "
+    							+ "  |+++++| РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃСЃ  : "
             					+ ""+note.get(i).getEmail()+"  "
-            							+ "  |+++++| Сообщение : "
+            							+ "  |+++++| РЎРѕРѕР±С‰РµРЅРёРµ : "
     	            					+ ""+note.get(i).getMessage()+" ";
 	Pattern pattern = Pattern.compile("\\s*("+tempStr+")\\s*");
     Matcher matcher = pattern.matcher(s1);
@@ -57,45 +57,45 @@ public String searchAll(String tempStr) {
 	}
 	if(bol == true)
 		 return "{" +
-     " Результаты поиска : '"+
+     " Р РµР·СѓР»СЊС‚Р°С‚С‹ РїРѕРёСЃРєР° : '"+
      "" + s2  + '\'' +
      '}';
-	  else return "Совпадений не найдено!";
+	  else return "РЎРѕРІРїР°РґРµРЅРёР№ РЅРµ РЅР°Р№РґРµРЅРѕ!";
 }
-public String searchNoteSubject(String tempStr, int tempInt ,String tempStrGroup) {//поиск по теме
+public String searchNoteSubject(String tempStr, int tempInt ,String tempStrGroup) {//РїРѕРёСЃРє РїРѕ С‚РµРјРµ
 	String s1 = "";
 	boolean bol=false;
 	  for (int i=0; i < note.size(); i++)
 		  if((( tempInt == 1) && 
-				  (Pattern.matches(tempStr,note.get(i).getNoteSubject())==true)) //поиск по названию
+				  (Pattern.matches(tempStr,note.get(i).getNoteSubject())==true)) //РїРѕРёСЃРє РїРѕ РЅР°Р·РІР°РЅРёСЋ
 				  ||(( tempInt == 2) && 
-						  (Pattern.matches(tempStr,note.get(i).getDateOfCreation())==true))//поиск по дате
+						  (Pattern.matches(tempStr,note.get(i).getDateOfCreation())==true))//РїРѕРёСЃРє РїРѕ РґР°С‚Рµ
 				  ||(( tempInt == 3) && 
-						  (Pattern.matches(tempStr,note.get(i).getEmail())==true))//поиск по почте
+						  (Pattern.matches(tempStr,note.get(i).getEmail())==true))//РїРѕРёСЃРє РїРѕ РїРѕС‡С‚Рµ
 				  ||(( tempInt == 4) && 
-						  (Pattern.matches(tempStr,note.get(i).getMessage())==true))//поиск по сообщению
+						  (Pattern.matches(tempStr,note.get(i).getMessage())==true))//РїРѕРёСЃРє РїРѕ СЃРѕРѕР±С‰РµРЅРёСЋ
 				  ||(( tempInt == 5) && 
-						  (Pattern.matches(tempStr,note.get(i).getNoteSubject())==true)//гркповой поиск
+						  (Pattern.matches(tempStr,note.get(i).getNoteSubject())==true)//РіСЂРєРїРѕРІРѕР№ РїРѕРёСЃРє
 						  && 
 						  (Pattern.matches(tempStrGroup,note.get(i).getDateOfCreation())==true))
-				  ) //поиск с помощью регулярки
+				  ) //РїРѕРёСЃРє СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРіСѓР»СЏСЂРєРё
       {
 			  bol=true;
-			  s1 = s1 + "\r\n  |+++++| Тема заметки  : "
+			  s1 = s1 + "\r\n  |+++++| РўРµРјР° Р·Р°РјРµС‚РєРё  : "
 	            		+ ""+ note.get(i).getNoteSubject() + " "
-	            				+ "  |+++++| Дата создания  : "
+	            				+ "  |+++++| Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ  : "
 	            					+ ""+note.get(i).getDateOfCreation()+"  "
-	            							+ "  |+++++| Почтовый адресс  : "
+	            							+ "  |+++++| РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃСЃ  : "
 	    	            					+ ""+note.get(i).getEmail()+"  "
-	    	            							+ "  |+++++| Сообщение : "
+	    	            							+ "  |+++++| РЎРѕРѕР±С‰РµРЅРёРµ : "
 	    	    	            					+ ""+note.get(i).getMessage()+" ";
       }
 	  if(bol == true)
 		 return "{" +
-      " Результаты поиска : '"+
+      " Р РµР·СѓР»СЊС‚Р°С‚С‹ РїРѕРёСЃРєР° : '"+
       "" + s1  + '\'' +
       '}';
-	  else return "Совпадений не найдено!";
+	  else return "РЎРѕРІРїР°РґРµРЅРёР№ РЅРµ РЅР°Р№РґРµРЅРѕ!";
 }
 public String searchRegEx(String temp) {
 	
@@ -103,45 +103,45 @@ public String searchRegEx(String temp) {
 }
 public String scanerStr() {
 	String temp;
-    Scanner sc = new Scanner(System.in);//поток будет закрыт в main
-    System.out.println("Введите данные:");
+    Scanner sc = new Scanner(System.in);//РїРѕС‚РѕРє Р±СѓРґРµС‚ Р·Р°РєСЂС‹С‚ РІ main
+    System.out.println("Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ:");
     temp = sc.nextLine();
    // sc.close();
 	return temp;
 }
 
-public String scanerStrDate() {//проверка на дату
+public String scanerStrDate() {//РїСЂРѕРІРµСЂРєР° РЅР° РґР°С‚Сѓ
 	boolean result=false;
 	String temp;
-    Scanner sc = new Scanner(System.in);//поток будет закрыт в main
+    Scanner sc = new Scanner(System.in);//РїРѕС‚РѕРє Р±СѓРґРµС‚ Р·Р°РєСЂС‹С‚ РІ main
     do {
-    System.out.println("Введите данные:");
+    System.out.println("Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ:");
     temp = sc.nextLine();
     result = temp.matches("\\d{2}([.])\\d{2}([.])\\d{4}");
 	if(result){
-	    System.out.println("проверка пройдена!");
+	    System.out.println("РїСЂРѕРІРµСЂРєР° РїСЂРѕР№РґРµРЅР°!");
 	}
 	else{
-	    System.out.println("ошибка ввода! прмер для ввода: 11.07.1992");    
+	    System.out.println("РѕС€РёР±РєР° РІРІРѕРґР°! РїСЂРјРµСЂ РґР»СЏ РІРІРѕРґР°: 11.07.1992");    
 	}
     }while(result!=true);
    // sc.close();
 	return temp;
 }
 
-public String scanerStrEmail() {//проверка на почту
+public String scanerStrEmail() {//РїСЂРѕРІРµСЂРєР° РЅР° РїРѕС‡С‚Сѓ
 	boolean result=false;
 	String temp;
-    Scanner sc = new Scanner(System.in);//поток будет закрыт в main
+    Scanner sc = new Scanner(System.in);//РїРѕС‚РѕРє Р±СѓРґРµС‚ Р·Р°РєСЂС‹С‚ РІ main
     do {
-    System.out.println("Введите данные:");
+    System.out.println("Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ:");
     temp = sc.nextLine();
     result = temp.matches("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
 	if(result){
-	    System.out.println("проверка пройдена!");
+	    System.out.println("РїСЂРѕРІРµСЂРєР° РїСЂРѕР№РґРµРЅР°!");
 	}
 	else{
-	    System.out.println("ошибка ввода! прмер для ввода: epam@gmail.com");    
+	    System.out.println("РѕС€РёР±РєР° РІРІРѕРґР°! РїСЂРјРµСЂ РґР»СЏ РІРІРѕРґР°: epam@gmail.com");    
 	}
     }while(result!=true);
    // sc.close();
